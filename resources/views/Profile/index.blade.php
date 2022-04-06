@@ -1,1 +1,0 @@
-<p>Vista Profile</p>

@@ -55,12 +55,12 @@
             <img src="images/insta.png" class="img-fluid w-50">
         </div>
         <form class="d-flex position-relative">
-            <input class="form-control bg-grey border text-center mr-2" type="Search" placeholder="Search" aria-label="Search">
+            <input class="form-control bg-grey border  text-center mr-2" type="Search" placeholder="Search" aria-label="Search">
             <button class="btn btn-link text-muted position-absolute" type="submit"><i class="fas fa-search"></i></button>
         </form>
 
         <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav  mb-2 " style="margin-left: auto;">
                 <li class="nav-item">
                 <a class="nav-link"  href="#"><i class="far fa-compass lead text-dark mr-3"></i></a>
                 </li>
@@ -71,6 +71,7 @@
                 <a class="nav-link"  href="#"><i class="far fa-user lead text-dark"></i></a>
                 </li>
             </ul>
+            <div class="profile-picture rounded-circle" style="margin-left: 15;"></div>
         </div>
     </div>
 </nav>
@@ -210,7 +211,7 @@
                     <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
                     <div>
                         <a href="#" class="d-block text-decoration-none font-weight-bold mb-0">Juan_Nava897</a>
-                        <small class="text-muted">Diego Vazquez</small>
+                        <small class="text-muted">Photographer</small>
                     </div>
                 </div>
                 <div class="card mb-4">
