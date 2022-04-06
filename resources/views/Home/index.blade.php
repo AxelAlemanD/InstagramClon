@@ -6,6 +6,7 @@
     .bg-grey {
         background-color: var(--grey);
     }
+
     .bg-light {
         background-color: var(--light)!important;
     }
@@ -17,6 +18,12 @@
     }
     .form-control::focus{
         box-shadow: none;
+    }
+    .profile-picture{
+        background-image: url('images/perfil.jpg');
+        background-size: cover;
+        width: 3rem;
+        height: 3rem;
     }
 </style>
 
@@ -34,7 +41,9 @@
 
         <title>Instagram Clone</title>
     </head>
-    <body class="bg-grey">
+    <body style="background: #EFEFBB;
+        background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+        background: linear-gradient(to right, #D4D3DD, #EFEFBB);">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container d-flex justify-content-between">
         <div>
@@ -62,15 +71,147 @@
     </div>
 </nav>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                <!-- PRIMER TARJETA -->
+                <div class="card mb-5">
+                    <div class="card-body d-flex">
+                        <div class="d-flex flex-grow-1">
+                            <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                            <a href="#" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+                    <img src="images/post_1.jpg" class="img-fluid">
+
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <i class="far fa-heart lead mr-3"></i>
+                                <i class="far fa-comment lead mr-3"></i>
+                                <i class="far fa-paper-plane lead mr-3"></i>
+                            </div>
+                            <div>
+                            <i class="far fa-bookmark lead mr-3"></i>
+                            </div>
+                        </div>
+                        <p style="font-weight: bold;">39 Me gusta</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+
+                        <div class="d-flex mb-3">
+                            <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
+                            <i class="far fa-heart align-self-center"></i>
+                        </div>
+                        <small class="d-block text-muted text-uppercase">Hace 8 horas</small>
+                    </div>
+
+                    <div class="d-flex border-top py-3 px-2">
+                        <input type="text" class="form-control border-0" placeholder="Agrega un comentario...">
+                        <button type="submit" class="btn btn-link text-decoration-none" style="font-weight: bold; color: #0095f6;">Publicar</button>
+                    </div>
+                </div>
+
+                <!-- SEGUNDA TARJETA -->
+                <div class="card mb-5">
+                    <div class="card-body d-flex">
+                        <div class="d-flex flex-grow-1">
+                            <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                            <a href="#" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+
+                    <img src="images/post_2.jpg" class="img-fluid">
+
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <i class="far fa-heart lead mr-3"></i>
+                                <i class="far fa-comment lead mr-3"></i>
+                                <i class="far fa-paper-plane lead mr-3"></i>
+                            </div>
+                            <div>
+                            <i class="far fa-bookmark lead mr-3"></i>
+                            </div>
+                        </div>
+                        <p style="font-weight: bold;">39 Me gusta</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+
+                        <div class="d-flex mb-3">
+                            <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
+                            <i class="far fa-heart align-self-center"></i>
+                        </div>
+                        <small class="d-block text-muted text-uppercase">Hace 8 horas</small>
+                    </div>
+
+                    <div class="d-flex border-top py-3 px-2">
+                        <input type="text" class="form-control border-0" placeholder="Agrega un comentario...">
+                        <button type="submit" class="btn btn-link text-decoration-none" style="font-weight: bold; color: #0095f6;">Publicar</button>
+                    </div>
+                </div>
+
+                <!-- TERCER TARJETA -->
+                <div class="card">
+                    <div class="card-body d-flex">
+                        <div class="d-flex flex-grow-1">
+                            <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                            <a href="#" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+
+                    <img src="images/post_3.jpg" class="img-fluid">
+
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <i class="far fa-heart lead mr-3"></i>
+                                <i class="far fa-comment lead mr-3"></i>
+                                <i class="far fa-paper-plane lead mr-3"></i>
+                            </div>
+                            <div>
+                            <i class="far fa-bookmark lead mr-3"></i>
+                            </div>
+                        </div>
+                        <p style="font-weight: bold;">39 Me gusta</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+
+                        <div class="d-flex mb-3">
+                            <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
+                            <i class="far fa-heart align-self-center"></i>
+                        </div>
+                        <small class="d-block text-muted text-uppercase">Hace 8 horas</small>
+                    </div>
+
+                    <div class="d-flex border-top py-3 px-2">
+                        <input type="text" class="form-control border-0" placeholder="Agrega un comentario...">
+                        <button type="submit" class="btn btn-link text-decoration-none" style="font-weight: bold; color: #0095f6;">Publicar</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
