@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <style>
     *{
         margin: 0;
@@ -13,7 +16,6 @@
         background: #EFEFBB;
         background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
         background: linear-gradient(to right, #D4D3DD, #EFEFBB);
-
     }
     .container{
         margin-top: 20px;
@@ -104,13 +106,6 @@
 </style>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -152,6 +147,4 @@
             </div>
         </div>
     </div>
-
-</body>
-</html>
+@endsection
