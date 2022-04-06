@@ -25,6 +25,10 @@
         width: 3rem;
         height: 3rem;
     }
+    .stories-container{
+        height: 190px;
+        overflow-y: auto;
+    }
 </style>
 
 
@@ -88,7 +92,7 @@
                         </div>
                     </div>
 
-                    <img src="images/post_1.jpg" class="img-fluid">
+                    <img src="images/post_4.jpg" class="img-fluid">
 
                     <div class="card-body">
                         <div class="d-flex">
@@ -102,7 +106,7 @@
                             </div>
                         </div>
                         <p style="font-weight: bold;">39 Me gusta</p>
-                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Una de las mejores fotos que he tomado!</p>
 
                         <div class="d-flex mb-3">
                             <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
@@ -143,7 +147,7 @@
                             </div>
                         </div>
                         <p style="font-weight: bold;">39 Me gusta</p>
-                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Una de las mejores fotos que he tomado!</p>
 
                         <div class="d-flex mb-3">
                             <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
@@ -184,7 +188,7 @@
                             </div>
                         </div>
                         <p style="font-weight: bold;">39 Me gusta</p>
-                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Nuevo record de aceleración, de 0 a 100km en 2s</p>
+                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Una de las mejores fotos que he tomado!</p>
 
                         <div class="d-flex mb-3">
                             <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
@@ -202,10 +206,100 @@
 
 
             <div class="col-lg-4">
+                <div class="d-flex mb-4">
+                    <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                    <div>
+                        <a href="#" class="d-block text-decoration-none font-weight-bold mb-0">Juan_Nava897</a>
+                        <small class="text-muted">Diego Vazquez</small>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <p class="text-muted flex-grow-1"  style="font-weight: bold;">Stories</p>
+                            <small><a href="" class="text-decoration-none text-dark" style="font-weight: bold;">Ver todas</a></small>
+                        </div>
+                        <div class="stories-container">
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
+                                    <small class="text-muted">hace 3 horas</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
+                                    <small class=" text-muted">hace 3 horas</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
+                                    <small class=" text-muted">hace 3 horas</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
+                                    <small class=" text-muted">hace 3 horas</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <p class="text-muted flex-grow-1"  style="font-weight: bold;">Sugerencias para ti</p>
+                            <small><a href="" class="text-decoration-none  text-dark" style="font-weight: bold;">Ver todo</a></small>
+                        </div>
+
+
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
+                                    <small class="text-muted">Nuevo en instagram</small>
+                                </div>
+                                <div class="d-flex flex-grow-1">
+                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
+                                    <small class=" text-muted">Nuevo en instagram</small>
+                                </div>
+                                <div class="d-flex flex-grow-1">
+                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                <div>
+                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
+                                    <small class=" text-muted">Nuevo en instagram</small>
+                                </div>
+                                <div class="d-flex flex-grow-1">
+                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
+                                </div>
+                            </div>
+                     </div>
+                </div>
             </div>
+
+
         </div>
     </div>
+
 </section>
 
 
