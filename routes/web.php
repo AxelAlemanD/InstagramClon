@@ -9,3 +9,5 @@ use App\Http\Controllers\PublicationsController;
 Route::resource('/', HomeController::class);
 Route::resource('/publications', PublicationsController::class);
 Route::resource('/profile', ProfileController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
