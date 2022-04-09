@@ -152,7 +152,7 @@
                 </div>
 
                 <div class="right-column-login text-center">
-                    <p>You do not have an account? <a href="#">  Sign up</a></p>
+                    <p>You do not have an account? <a href="{{ route('register') }}">  Sign up</a></p>
                 </div>
 
             </div>

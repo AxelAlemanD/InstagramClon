@@ -152,7 +152,7 @@
                 </div>
 
                 <div class="right-column-login text-center">
-                    <p>Have an account? <a href="#">  Login</a></p>
+                    <p>Have an account? <a href="{{ route('login') }}">  Login</a></p>
                 </div>
 
             </div>
