@@ -121,7 +121,7 @@
                     @csrf
                         <div class="form-group">
                             <div class="mb-4">
-                                <input id="email" type="email"
+                                <input id="email"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
                                 value="{{ old('email') }}" required autocomplete="email" placeholder="Mobile Number or Email" autofocus >
 
