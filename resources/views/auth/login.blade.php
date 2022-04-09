@@ -135,7 +135,7 @@
 
                         <div class="form-group">
                                 <div class="mb-4">
-                                    <input id="password" type="password"
+                                    <input id="password" type="password" name="password"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
                                            required autocomplete="current-password" placeholder="Password">
 

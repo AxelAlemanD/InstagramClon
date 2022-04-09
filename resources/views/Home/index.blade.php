@@ -86,7 +86,7 @@
                     <div class="card-body d-flex">
                         <div class="d-flex flex-grow-1">
                             <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                            <a href="#" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
+                            <a href="{{route('profile.index')}}" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
                         </div>
                         <div class="align-self-center">
                             <i class="fas fa-ellipsis-h"></i>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <p style="font-weight: bold;">39 Me gusta</p>
-                        <p class="mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Una de las mejores fotos que he tomado!</p>
+                        <p class="mb-0"><a href="{{route('profile.index')}}" class="text-dark text-decoration-none" style="font-weight: bold;">Juan_nava897</a> Una de las mejores fotos que he tomado!</p>
 
                         <div class="d-flex mb-3">
                             <p class="flex-grow-1 mb-0"><a href="#" class="text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a> Que buena foto!!!</p>
@@ -127,7 +127,7 @@
                     <div class="card-body d-flex">
                         <div class="d-flex flex-grow-1">
                             <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                            <a href="#" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
+                            <a href="{{route('profile.index')}}" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">Juan_nava897</a>
                         </div>
                         <div class="align-self-center">
                             <i class="fas fa-ellipsis-h"></i>

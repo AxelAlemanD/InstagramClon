@@ -108,6 +108,17 @@
 
     <div class="container">
         <div class="row">
+            @if ($errors->any())
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <strong>Revisa los campos</strong>
+                @foreach ($errors->all() as $error)
+                    <span class="badge badge-danger">{{$error}}</span>
+                @endforeach
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    
+                </button>
+            </div>
+        @endif
             <div class="col-sm-6">
                     <img src="images/instagram.png" class="phone">
             </div>
@@ -121,19 +132,19 @@
                     <form method="POST" action="{{ route('register') }}">
                     @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Mobile Number or Email">
+                            <input type="text" class="form-control" placeholder="Mobile Number or Email" name="email">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <input type="text" class="form-control" placeholder="Full Name" name="name">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username" name="username">
                         </div>
 
                         <div class="form-group">
-                            <input type="passsword" class="form-control" placeholder="Password">
+                            <input type="passsword" class="form-control" placeholder="Password" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                     </form>
