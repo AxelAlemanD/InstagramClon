@@ -132,13 +132,13 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="form-label">Añade una descripción</label>
-                                        <textarea class="form-control" type="text" rows="6" placeholder="Ingresa las actividades a desempeñar" name="actividad"></textarea>
+                                        <textarea class="form-control" type="text" rows="6" placeholder="Aña una descripción..." name="actividad"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-5 mb-4">
                                     <div class="form-group">
-                                        <label class="form-label">Ingresa un titulo</label>
-                                        <input class="form-control" type="text" placeholder="Agrega una descripción..." name="departamento" maxlength="16">
+                                        <label class="form-label">Añade un titulo</label>
+                                        <input class="form-control" type="text" placeholder="Añade un titulo..." name="departamento" maxlength="16">
                                     </div>
                                 </div>
 
