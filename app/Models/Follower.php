@@ -65,4 +65,26 @@ class Follower extends Model
     {
         return User::whereIn('id', Follower::where('follower_id', $user_id)->pluck('user_id'))->get();
     }
+
+    public function isFollowing(){
+        if($this->where('follower_id', auth()->user()->id)
+                ->where('user_id', $this->user_id)
+                ->first() != null){
+            return true;
+        }else{
+            return false;
+        }       
+    }
+
+
+    public static function following($user_id){
+
+        if(Follower::where('follower_id', auth()->user()->id)
+                    ->where('user_id', $user_id)
+                    ->first() != null){
+            return true;
+        }else{
+            return false;
+        }       
+    }
 }

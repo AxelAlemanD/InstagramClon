@@ -149,6 +149,11 @@
                                     <div class="col-8 col-lg-5">
                                         <h2 class="username">{{$currentUser->username}}</h2>
                                     </div>
+                                    <div class="col-4 col-lg-6">
+                                        <button type="button" onclick="followUser(event)" data-id="{{$currentUser->id}}" class="btn btn-primary font-weight-bold button-edit" style="color: #ffffff;">
+                                            @if ($isFollowing) Siguiendo @else Seguir @endif
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
@@ -211,7 +216,7 @@
                             <div class="row" style="padding-bottom: 25px;">
                                 @if (isset($currentUser->publications))
                                     @foreach ($currentUser->publications as $publication)
-                                        <div class="col-4">
+                                        <div class="col-4" style="padding-bottom: 25px;">
                                             <div class="card">
                                                 <a href="{{route('publications.show', $publication->id)}}"></a><img src="{{asset($publication->image_url)}}" class="card-img-top" alt="...">
                                             </div>
