@@ -1,1 +1,1 @@
-<p>Vista Ver Publicación</p>
+<p>ver publicacion</p>

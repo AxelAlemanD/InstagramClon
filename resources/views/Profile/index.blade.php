@@ -1,218 +1,337 @@
-@extends('layouts.app')
+<style>
 
-@section('content')
+.nav-top {
+    height: 63px;
+    background-color: white !important;
+    border-top:0.5px solid #dbdbdb;
+    border-bottom:1px solid #dbdbdb;
+}
 
-{{-- <style>
-    :root{
-        --white: #ffffff;
-        --grey: #fafafa;
-    }
-    .bg-grey {
-        background-color: var(--grey);
-    }
+.nav-container {
+    padding-left: 25% !important;
+    padding-right: 25% !important;
+}
 
-    .bg-light {
-        background-color: var(--light)!important;
+@media screen and (max-width: 1605px) {
+    .nav-container {
+        padding-left: 20% !important;
+        padding-right: 20% !important;
     }
-    .navbar{
-        min-height: 5rem;
-    }
-    i.lead {
-        font-size: 1.8rem;
-    }
-    .form-control::focus{
-        box-shadow: none;
-    }
-    .profile-picture{
-        background-image: url('images/perfil.jpg');
-        background-size: cover;
-        width: 3rem;
-        height: 3rem;
-    }
+  }
 
-    .container{
-       	height: 100%;
-       	align-content: center;
+@media screen and (max-width: 992px) {
+    .nav-container {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
     }
+}
 
-    .image_outer_container{
-       	margin-top: 20px;
-       	border-radius: 50%;
-    }
+.img-nav {
+    border-radius: 100%;
+    -o-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    max-width:30px;
+    max-height:25px;
+}
 
-    .image_inner_container{
-       	border-radius: 50%;
-       	padding: 5px;
-        background: #833ab4;
-        background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
-        background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
-    }
-    .image_inner_container img{
-       	height: 200px;
-       	width: 200px;
-       	border-radius: 50%;
-       	border: 5px solid white;
-    }
-    .image{
-        display: block;
-        width: 100%;
-    }
-    .overlay{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        transition: .5s ease;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-    .caption{
-        font-size: 2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        text-align: center;
-    }
+.img-profile {
+    border-radius: 100%;
+    width:150px;
+    height:150px;
+}
 
-    .img-container:hover .overlay{
-        opacity: 1;
-    }
-    .list {
-    position: absolute;
-    margin-top: 150px;
-    margin-left: 390px;
-    }
+.username {
+    font-weight: 300; font-size: 28px;
+}
 
-    .list ul li {
-    float: left;
-    }
-    .bio-user{
-        margin-left: 12px;
-        margin-top: 20px;
-    }
-</style> --}}
+.name {
+    font-size: 16px; display: inline; font-weight: 600 !important;
+}
 
-<div class="container">
-    <div class="d-flex justify-content-center py-5">
-        <div class="image_outer_container">
-            <div class="image_inner_container">
-                <img src="images/perfil.jpg">
-            </div>
-        </div>
-        <div class="profile-user-settings d-flex justify-content-between align-items-center">
-            <h1 class="profile-user-name px-3">Juan_Nava897</h1>
-            <button class="btn btn-primary font-weight-bold">seguir</button>
-            <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
-        </div>
+.profile-datas {
+    font-size: 16px;
+}
 
-        <div class="list">
-            <ul class="list-unstyled">
-                <li class="px-3"><span class="font-weight-bold">9</span> publicaciones</li>
-                <li class="px-3"><span class="font-weight-bold">3.2k</span> seguidores</li>
-                <li class="px-3"><span class="font-weight-bold">4</span> seguidos</li>
-            </ul>
-            <ul class="list-unstyled">
-                <li class="bio-user"><span class="font-weight-bold px-1">Juan_Nava897</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</li>
-            </ul>
-        </div>
-    </div>
+.profile-desc {
+    font-size: 16px;
+}
+
+.nav-feed {
+    border-bottom: none !important;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.nav-link-1 {
+    color: #495057;
+    background-color: #fafafa !important;
+    border-color: gray #fff #fff !important;
+    border-top-right-radius: .0rem !important;
+    border-top-left-radius: .0rem !important;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nav-link-2 {
+    color: #a2a8af;
+    background-color: #fafafa !important;
+    border-color: #fff #fff #fff !important;
+    border-top-right-radius: .0rem !important;
+    border-top-left-radius: .0rem !important;
+    font-size: 12px;
+    font-weight: 600;
+}
 
 
+.card {
+    border: 0px solid rgba(0,0,0,.125) !important;
+    border-radius: .0rem !important;
+}
 
-    <div class="row">
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
+.card .card-img, .card-img-top {
+    border-top-left-radius: 0rem !important;
+    border-top-right-radius: 0rem !important;
+}
+
+.stories{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: .15rem !important;
+    padding: 0% !important;
+    background-color: #fafafa !important;
+    text-align: center;
+    font-size: 15px !important;
+}
+
+.icons {
+    padding: 4%;
+    font-size: 25px;
+}
+
+.button-edit {
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-color: #dae1e7 !important;
+}
+
+.btn {
+    padding: .100rem .50rem !important;
+}
+</style>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <title>Instagram Clone</title>
+</head>
+
+<body class="body" style="background: #EFEFBB;
+        background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+        background: linear-gradient(to right, #D4D3DD, #EFEFBB);">
+
+    <!-- Main-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-0 col-md-2"></div>
+                <div class="col-12 col-md-8">
+
+                    <!-- Profile-->
+                    <div class="container">
+                        <div class="row" style="padding-top: 30px;">
+                            <div class="col-3">
+                                <img class="img-profile" src="{{asset('images/perfil.jpg')}}">
+                            </div>
+                            <div class="col-7">
+                                <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
+                                    <div class="col-8 col-lg-5">
+                                        <h2 class="username">Juan_Nava897</h2>
+                                    </div>
+                                    <div class="col-4 col-lg-6"><button type="button"
+                                            class="btn btn-primary font-weight-bold button-edit" style="color: #ffffff;">Seguir</button></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="profile-datas"><strong>3</strong> publicaciones</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="profile-datas"><strong>5</strong> seguidores</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="profile-datas"><strong>3</strong> siguiendo</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1 class="name">Juan_Nava897</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="profile-desc">Ingeniero | Network Architect</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stories-->
+                    <div style="padding-top: 0px;">
+                        <div class="row">
+                            <div class="col-2"> <canvas id="myCrl"></canvas></div>
+                            <div class="col-2"> <canvas id="myCrl1"></canvas></div>
+                            <div class="col-2"> <canvas id="myCrl2"></canvas></div>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 40px;">
+                        <div class="row">
+                            <div class="col-2 stories"> Foto_1</div>
+                            <div class="col-2 stories"> Foto_2</div>
+                            <div class="col-2 stories"> Foto_3</div>
+                        </div>
+                    </div>
+
+                    <!-- Line-->
+                    <hr size="3" width="100%" color="#EEEEEE" style="margin: 0%;">
+
+                    <!-- Nav-Feed-->
+                    <ul class="nav nav-tabs nav-feed" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active nav-link-1" id="home-tab" data-bs-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true"><i class="bi bi-grid-3x3"></i> PUBLICACIONES</a>
+                        </li>
+
+
+                    </ul>
+
+                    <!-- Card-Feed-->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row" style="padding-bottom: 25px;">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_1.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_2.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_3.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 25px;">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_4.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_5.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_6.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 25px;">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_7.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_8.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <img src="{{asset('images/post_9.jpg')}}" class="card-img-top" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
                     </div>
                 </div>
+                <div class="col-0 col-md-2"></div>
             </div>
         </div>
+    </section>
 
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-4 col-sm-6 py-1 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script type="text/javascript">
 
-        <div class="col-lg-4 col-sm-6 py-1 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
+        var crl = document.getElementById('myCrl').getContext('2d');
 
-        <div class="col-lg-4 col-sm-6 py-1 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
+        crl.beginPath();
+        crl.arc(60, 100, 40, 0, 2 * Math.PI);
+        crl.fillStyle = '#00ACC1';
+        crl.fill();
+        crl.linewidth = 5;
+        crl.strokeStyle = '#dbdbdb';
+        crl.stroke();
 
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
+        var crl1 = document.getElementById('myCrl1').getContext('2d');
 
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
+        crl1.beginPath();
+        crl1.arc(60, 100, 40, 0, 2 * Math.PI);
+        crl1.fillStyle = '#F8BBD0';
+        crl1.fill();
+        crl1.linewidth = 5;
+        crl1.strokeStyle = '#dbdbdb';
+        crl1.stroke();
 
-        <div class="col-lg-4 col-sm-6 py-3 px-2">
-            <div class="thumbnail">
-                <div class="img-container">
-                    <img src="images/post_4.jpg" alt="" class="image">
-                    <div class="overlay">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+        var crl2 = document.getElementById('myCrl2').getContext('2d');
+
+        crl2.beginPath();
+        crl2.arc(60, 100, 40, 0, 2 * Math.PI);
+        crl2.fillStyle = '#E91E63';
+        crl2.fill();
+        crl2.linewidth = 5;
+        crl2.strokeStyle = '#dbdbdb';
+        crl2.stroke();
+
+    </script>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
