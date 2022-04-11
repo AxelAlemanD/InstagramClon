@@ -30,5 +30,8 @@ class Publication extends Model
     /**
      * Get the likes for the publication.
      */
-    // TODO: Add likes
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
