@@ -32,6 +32,8 @@ class Like extends Model
     /**
      * Get the comments for the like.
      */
-    // TODO: Add comments
-    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

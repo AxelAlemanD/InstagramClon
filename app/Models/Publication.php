@@ -25,7 +25,10 @@ class Publication extends Model
     /**
      * Get the comments for the publication.
      */
-    // TODO: Add comments
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     /**
      * Get the likes for the publication.
