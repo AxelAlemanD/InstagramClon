@@ -4,20 +4,18 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Follower;
+use App\Models\User;
 
-class DatabaseSeeder extends Seeder
+class FollowerSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // Call UserSeeder
-        $this->call([
-            UserSeeder::class,
-            FollowerSeeder::class,
-        ]);
+        Follower::factory()->times(5*User::count())->create();
     }
 }
