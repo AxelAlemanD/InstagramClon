@@ -20,7 +20,7 @@ class UserFactory extends Factory
         $firstName = $this->faker->firstName();
         $lastName = $this->faker->lastName();
         return [
-            'user_name' => $firstName.' '.$lastName,
+            'username' => $firstName.' '.$lastName,
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $this->faker->unique()->safeEmail(),
