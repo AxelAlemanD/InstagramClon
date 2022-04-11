@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="profile-user-settings d-flex justify-content-between align-items-center">
-            <h1 class="profile-user-name px-3">Juan_Nava897</h1>
+            <h1 class="profile-user-name px-3">{{$currentUser->username}}</h1>
             <button class="btn btn-primary font-weight-bold">seguir</button>
             <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
         </div>
@@ -116,7 +116,7 @@
                 <li class="px-3"><span class="font-weight-bold">4</span> seguidos</li>
             </ul>
             <ul class="list-unstyled">
-                <li class="bio-user"><span class="font-weight-bold px-1">Juan_Nava897</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</li>
+                <li class="bio-user"><span class="font-weight-bold px-1">{{$currentUser->username}}</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</li>
             </ul>
         </div>
     </div>

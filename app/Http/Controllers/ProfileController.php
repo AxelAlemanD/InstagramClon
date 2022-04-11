@@ -13,7 +13,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('Profile.index');
+        $currentUser = auth()->user();
+
+        return view('Profile.index', get_defined_vars());
     }
 
     /**

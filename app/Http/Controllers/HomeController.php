@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follower;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Home.index');
+        $currentUser = auth()->user();
+        $follows = Follower::where('follower_id', $currentUser->id)->get();
+
+        return view('Home.index', get_defined_vars());
     }
 }

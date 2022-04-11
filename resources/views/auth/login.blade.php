@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 {{-- <style>
@@ -123,7 +123,7 @@
                             <div class="mb-4">
                                 <input id="email"
                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" placeholder="Mobile Number or Email" autofocus >
+                                value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus >
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">

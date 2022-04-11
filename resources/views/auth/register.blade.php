@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 {{-- <style>
@@ -108,17 +108,7 @@
 
     <div class="container">
         <div class="row">
-            @if ($errors->any())
-            <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                <strong>Revisa los campos</strong>
-                @foreach ($errors->all() as $error)
-                    <span class="badge badge-danger">{{$error}}</span>
-                @endforeach
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    
-                </button>
-            </div>
-        @endif
+
             <div class="col-sm-6">
                     <img src="images/instagram.png" class="phone">
             </div>
@@ -131,21 +121,57 @@
 
                     <form method="POST" action="{{ route('register') }}">
                     @csrf
+                        
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Mobile Number or Email" name="email">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Full Name" name="name">
-                        </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username">
+                            <input type="text" class="form-control @error('first_name') is-invalid @enderror" placeholder="First Name" name="first_name">
+                            @error('first_name')
+                                <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
 
+
                         <div class="form-group">
-                            <input type="passsword" class="form-control" placeholder="Password" name="password">
+                            <input type="text" class="form-control @error('last_name') is-invalid @enderror" placeholder="Last Name" name="last_name">
+                            @error('last_name')
+                                <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
+
+
+                        <div class="form-group">
+                            <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username">
+                            @error('username')
+                                <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+
                         <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                     </form>
                     <p class="terms">By signing up, you agree to our<b> Terms, Data Policy</b> and <b>Cookies Policy</b>.</p>

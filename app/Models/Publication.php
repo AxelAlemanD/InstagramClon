@@ -37,4 +37,14 @@ class Publication extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function isLiked(){
+        if($this->likes()->where('user_id', auth()->user()->id)->first() != null){
+            return true;
+        }else{
+            return false;
+        }
+        // return $this->likes()->where('user_id', auth()->user()->id);
+        
+    }
 }
