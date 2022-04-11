@@ -1,4 +1,8 @@
-<style>
+@extends('layouts.app')
+
+@section('content')
+
+{{-- <style>
     :root{
         --white: #ffffff;
         --grey: #fafafa;
@@ -29,10 +33,10 @@
         height: 190px;
         overflow-y: auto;
     }
-</style>
+</style> --}}
 
 
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -74,7 +78,7 @@
             <div class="profile-picture rounded-circle" style="margin-left: 15;"></div>
         </div>
     </div>
-</nav>
+</nav> --}}
 
 <section class="py-5">
     <div class="container">
@@ -82,7 +86,7 @@
             <div class="col-lg-8">
 
                 <!-- PRIMER TARJETA -->
-                <div class="card mb-5">
+                {{-- <div class="card mb-5">
                     <div class="card-body d-flex">
                         <div class="d-flex flex-grow-1">
                             <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
@@ -120,10 +124,10 @@
                         <input type="text" class="form-control border-0" placeholder="Agrega un comentario...">
                         <button type="submit" class="btn btn-link text-decoration-none" style="font-weight: bold; color: #0095f6;">Publicar</button>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- SEGUNDA TARJETA -->
-                <div class="card mb-5">
+                {{-- <div class="card mb-5">
                     <div class="card-body d-flex">
                         <div class="d-flex flex-grow-1">
                             <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
@@ -161,7 +165,7 @@
                         <input type="text" class="form-control border-0" placeholder="Agrega un comentario...">
                         <button type="submit" class="btn btn-link text-decoration-none" style="font-weight: bold; color: #0095f6;">Publicar</button>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- TERCER TARJETA -->
                 <div class="card">
@@ -296,17 +300,8 @@
                      </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 
 </section>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  </body>
-</html>
+@endsection

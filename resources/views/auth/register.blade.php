@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
+{{-- <style>
     *{
         margin: 0;
         padding: 0;
@@ -103,7 +103,7 @@
     .right-column-login a:hover{
         text-decoration: none;
     }
-</style>
+</style> --}}
 
 
     <div class="container">
