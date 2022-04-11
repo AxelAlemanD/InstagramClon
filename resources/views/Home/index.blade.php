@@ -11,7 +11,7 @@
                 @isset($follows)
                     @foreach ($follows as $follow)
                         @foreach ($follow->publications as $publication)
-                            <div class="card">
+                            <div class="card mb-5">
                                 <div class="card-body d-flex">
                                     <div class="d-flex flex-grow-1">
                                         <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>

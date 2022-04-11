@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Follower;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ProfileController extends Controller
 {
@@ -15,6 +17,9 @@ class ProfileController extends Controller
     public function index()
     {
         $currentUser = auth()->user();
+        $totalPublications = count($currentUser->publications);
+        $totalFollowings = Follower::getTotalFollowing($currentUser->id);
+        $totalFollowers = Follower::getTotalFollowers($currentUser->id);
 
         return view('Profile.index', get_defined_vars());
     }
@@ -48,7 +53,13 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        return view('Profile.ver');
+        $currentUser = User::find($id);
+        $totalPublications = count($currentUser->publications);
+        $totalFollowings = Follower::getTotalFollowing($currentUser->id);
+        $totalFollowers = Follower::getTotalFollowers($currentUser->id);
+        $isFollowing = Follower::following($currentUser->id);
+        
+        return view('Profile.ver', get_defined_vars());
     }
 
     /**
