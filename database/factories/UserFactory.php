@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Hash;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -17,10 +17,12 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $firstName = $this->faker->firstName();
+        $lastName = $this->faker->lastName();
         return [
-            'user_name' => $this->faker->name(),
-            'first_name' => $this->faker->name(),
-            'last_name' => $this->faker->last_name(),
+            'user_name' => $firstName.' '.$lastName,
+            'first_name' => $firstName,
+            'last_name' => $lastName,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password
