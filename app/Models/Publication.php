@@ -43,8 +43,6 @@ class Publication extends Model
             return true;
         }else{
             return false;
-        }
-        // return $this->likes()->where('user_id', auth()->user()->id);
-        
+        }       
     }
 }

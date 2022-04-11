@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       # $this->middleware('auth');
     }
 
     /**
@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $currentUser = auth()->user();
-        $follows = Follower::where('follower_id', $currentUser->id)->get();
+        $follows =  Follower::getFollowing($currentUser->id);
+        $suggestions = Follower::where('follower_id', '!=', $currentUser->id)->take(5)->get();
 
         return view('Home.index', get_defined_vars());
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follower;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -82,5 +83,25 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function followUser(Request $request)
+    {
+        $follow = Follower::where('follower_id',$request->user_id)
+        ->where('user_id',$request->id)
+        ->get();
+
+        if(count($follow) == 0){
+            Follower::create([
+                'user_id' => $request->id,
+                'follower_id' => $request->user_id,
+            ]);
+
+            return response()->json('follow' , 202);
+        }else{
+            $follow->first()->delete();
+            return response()->json('unfollow' , 202);
+        }   
     }
 }

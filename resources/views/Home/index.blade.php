@@ -10,7 +10,7 @@
                 <!-- TERCER TARJETA -->
                 @isset($follows)
                     @foreach ($follows as $follow)
-                        @foreach ($follow->user->publications as $publication)
+                        @foreach ($follow->publications as $publication)
                             <div class="card">
                                 <div class="card-body d-flex">
                                     <div class="d-flex flex-grow-1">
@@ -110,46 +110,26 @@
 
 
                 {{-- SUGERENCIAS --}}
-                {{-- <div class="card">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex">
                             <p class="text-muted flex-grow-1"  style="font-weight: bold;">Sugerencias para ti</p>
                             <small><a href="" class="text-decoration-none  text-dark" style="font-weight: bold;">Ver todo</a></small>
                         </div>
-
-
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
-                                    <small class="text-muted">Nuevo en instagram</small>
-                                </div>
-                                <div class="d-flex flex-grow-1">
-                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
-                                </div>
+                        @foreach ($suggestions as $suggestion)
+                        <div class="d-flex mb-4">
+                            <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                            <div>
+                                <a href="{{route('profile.show', $suggestion->user_id)}}" class="d-block text-dark text-decoration-none" style="font-weight: bold;">{{$suggestion->user->username}}</a>
+                                {{-- <small class="text-muted">Nuevo en instagram</small> --}}
                             </div>
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
-                                    <small class=" text-muted">Nuevo en instagram</small>
-                                </div>
-                                <div class="d-flex flex-grow-1">
-                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
-                                </div>
+                            <div class="d-flex flex-grow-1">
+                                <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;" onclick="followUser(event)" data-id="{{$suggestion->user_id}}">@if ($suggestion->isFollowing()) Siguiendo @else Seguir @endif</a>
                             </div>
-                            <div class="d-flex">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Axel_Isai33</a>
-                                    <small class=" text-muted">Nuevo en instagram</small>
-                                </div>
-                                <div class="d-flex flex-grow-1">
-                                    <a href="#" class="align-self-center text-decoration-none" style="margin-left: auto; font-weight: bold;">Seguir</a>
-                                </div>
-                            </div>
+                        </div>                            
+                        @endforeach
                      </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
