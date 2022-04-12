@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Publication;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class PublicationsController extends Controller
 {
@@ -146,7 +148,9 @@ class PublicationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $publication = Publication::findOrFail($id);
+        $publication->delete();
+        return redirect()->route('profile.index');
     }
 
 
@@ -190,5 +194,21 @@ class PublicationsController extends Controller
         $comment = Arr::add($comment, 'username', $comment->user->username);
         
         return response()->json($comment , 202);
+    }
+
+
+    public function getPublication(Request $request){
+        $publication = Publication::findOrFail($request->id);
+        $profile = User::findOrFail($publication->user_id);
+        $comments = $publication->comments;
+        foreach ($comments as $comment) {
+            $comment = Arr::add($comment, 'user', $comment->user);
+        }
+        
+
+
+        return response()->json(['publication' => $publication, 
+                                'comments' => $comments,
+                                'profile' => $profile], 202);
     }
 }

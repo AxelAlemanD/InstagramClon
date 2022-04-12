@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('publication_id')->references('id')->on('publications');
+            $table->foreignId('publication_id')->references('id')->on('publications')->onDelete('cascade');
             $table->timestamps();
         });
     }

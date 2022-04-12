@@ -48,23 +48,16 @@
             <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav  mb-2 " style="margin-left: auto;">
                     <li class="nav-item">
-                        <a class="nav-link"  href="{{route('publications.create')}}"><i class="far fa-solid fa-camera lead text-dark mr-3"></i></a>
+                        <a href="#"  data-toggle="modal" data-target="#createPublication">
+                            <i class="far fa-solid fa-camera lead text-dark mr-3"></i>
+                        </a>
+                        {{-- <a class="nav-link"  href="{{route('publications.create')}}"><i class="far fa-solid fa-camera lead text-dark mr-3"></i></a> --}}
                     </li>
-                    {{-- <li class="nav-item">
-                    <a class="nav-link"  href="#"><i class="far fa-compass lead text-dark mr-3"></i></a>
-                    </li> --}}
                     <li class="nav-item">
                     <a class="nav-link"  href="#"><i class="far fa-heart lead text-dark mr-3"></i></a>
                     </li>
-                    {{-- <li class="nav-item">
-                    <a class="nav-link"  href="#"><i class="far fa-user lead text-dark"></i></a>
-                    </li> --}}
                 </ul>
-                {{-- <div class="profile-picture rounded-circle" style="margin-left: 15;"></div> --}}
                 <a href="{{route('profile.index')}}"><img src="{{asset(auth()->user()->image_url)}}" alt="" class="profile-picture rounded-circle" ></a>
-                {{-- <div class="profile-picture rounded-circle" style="margin-left: 15;">
-                    <a href="{{route('profile.index')}}"><img src="{{asset(auth()->user()->image_url)}}" alt="" class="profile-picture rounded-circle" ></a>
-                </div> --}}
             </div>
         </div>
     </nav>
@@ -73,7 +66,7 @@
 
         <main class="py-4">
             @yield('content')
-            @extends('layouts.modalViewPublication')
+            @extends('layouts.createPublication')
         </main>
     </div>
 
@@ -137,11 +130,6 @@
 
             let panelComentarios = event.target.parentNode.previousElementSibling.querySelector('.panelComentarios');
 
-            // console.log(panelComentarios);
-            // console.log(event.target);
-            // console.log(event.target.parentNode);
-            // console.log(event.target.parentNode.previousElementSibling);
-
             $.ajax({
                 type: "GET",
                 dataType: "json",
@@ -171,9 +159,6 @@
             let id = event.target.getAttribute('data-id');            
             let user_id = {{auth()->user()->id}};
 
-            console.log('user_id: ' + user_id);
-            console.log('id: ' + id);
-
             $.ajax({
                 type: "post",
                 dataType: "json",
@@ -183,7 +168,6 @@
                     'id': id,
                 },
                 success: function(newFollow) {
-                    console.log(newFollow);
                     if (newFollow === 'follow') {
                         event.target.innerText = 'Siguiendo';
                     } else {
@@ -213,7 +197,6 @@
                 'id': idPublication,
             },
             success: function(data) {
-                console.log(data);
                 image.src = '../'+data.publication.image_url;
                 userImage.src = '../'+data.profile.image_url;
                 userName.innerText = data.profile.username;

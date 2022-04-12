@@ -88,14 +88,11 @@
     function previewImage(e) {
         const preview = document.getElementById('image');
         const aviso = document.getElementById('aviso');
-        // const btn = document.getElementById('descripcionBtn');
 
     	preview.src = URL.createObjectURL(e.target.files[0]);
     	preview.onload = () => URL.revokeObjectURL(preview.src);
 
         aviso.remove();
-
-        // btn.innerText = 'Seleccionar otra imagen';
     }
 </script>
 @endsection

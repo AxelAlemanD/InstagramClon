@@ -238,6 +238,9 @@
     </section>
 
 @endsection
+
+@extends('layouts.modalViewPublication')
+
 @section('extra-js')
 
     <script type="text/javascript">
