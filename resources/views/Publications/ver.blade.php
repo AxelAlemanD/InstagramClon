@@ -1,27 +1,11 @@
 <style>
     body{
-    background-color:#bdc3c7 ;
+    background-color:#929292 ;
 }
-
-
-
 ::-webkit-scrollbar {
     height: 0px;
     width: 0px;
-    background: transparent; /* make scrollbar transparent */
-  }
-
-
-.col-8{
-    background-color: #ffffff;
-    /* border: 1px solid black; */
-    border-right: 1px solid rgba(138, 138, 138, 0.65);
-}
-
-.col-4{
-
-    background-color: #ffffff;
-
+    background: transparent;
 }
 
 .profile-bar{
@@ -30,8 +14,6 @@
     width: 104%;
     border-bottom: 1px solid rgba(138, 138, 138, 0.65);
 }
-
-
 .profile-image{
     height: 40px;
     width: 45px;
@@ -41,9 +23,7 @@
     margin-top: 7%;
     margin-left: 4%;
 }
-
 .media-body{
-    margin: 0;
     margin-top: 8%;
     margin-left: 5%;
     color: black;
@@ -65,11 +45,6 @@
     border-bottom: 1px solid rgba(138, 138, 138, 0.65);
 
 }
-
-
-
-
-
 .like-share-icon{
     background-color: #ffffff;
     height: 10%;
@@ -77,7 +52,6 @@
     border-bottom: 1px solid rgba(138, 138, 138, 0.65);
 
 }
-
 .far{
     font-size: 150%;
     color: black;
@@ -89,22 +63,17 @@
     margin-left: 4%;
     margin-top: -3%;
 }
-
-
 .comment-bar{
     background-color: #ffffff;
     height: 6%;
     width: 104%;
     border: 0;
 }
-
 input{
     height: 200px;
     color: yellow;
     border: 0px;
 }
-
-
 .comment{
     border: 0;
   }
@@ -113,21 +82,20 @@ input{
     outline: 0;
     box-shadow: none;
 }
-
 .post-button{
     color: #00ADF1;
     font-weight: 600;
 }
-
 .post-button:hover{
     color: rgb(1, 183, 255);
   }
-
 .post-button:focus{
     outline: 0;
     box-shadow: none;
   }
 </style>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,85 +111,71 @@ input{
 
 </head>
 <body>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post">
+        Boton de prueba
       </button>
 
 
-  <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+<div class="modal" tabindex="-1" role="dialog" id="post">
     <div class="modal-dialog modal-dialog-centered modal-xl " role="document">
-      <div class="modal-content">
-        <!-- <div class="modal-body"> -->
-         <!-- <div class="container-fluid"> -->
-           <div class="row">
-             <!-- <div class="col-8"> -->
-               <img src="{{asset('images/perfil.jpg')}}" class="col-8" alt="">
-             <!-- </div> -->
-             <div class="col-4 ">
-
-               <div class="profile-bar">
-
-                  <div class="media">
-                      <img src="{{asset('images/perfil.jpg')}}" class=" profile-image " >
-                       <div class="media-body">
-                             <h5 class="user-name">Juan_Nava897 <a href="#" class="follow-link"> Follow </a>  </h5>
+        <div class="modal-content">
+            <div class="row">
+                <img src="{{asset('images/post_7.jpg')}}" class="col-8" alt="">
+                <div class="col-4 " >
+                    <div class="profile-bar">
+                        <div class="media">
+                            <img src="{{asset('images/perfil.jpg')}}" class=" profile-image " >
+                            <div class="media-body">
+                                <h5 class="user-name">Juan_Nava897 <a href="#" class="follow-link"> Seguir </a>  </h5>
+                            </div>
                         </div>
                     </div>
 
-               </div>
-
-               <div class="caption-comments overflow-auto">
-
-                  <div class="media captions">
-                      <img src="{{asset('images/perfil.jpg')}}" class="profile-image" >
-                       <div class="media-body">
-                           <h5 class="user-name">Juan_Nava897 </h5>
-                             <div class="captions"> Sigueme para no perderte ninguna de mis publicaciones💯
-                               </div>
-                       </div>
-                   </div>
-
-                   <div class="media  captions">
-                      <img src="{{asset('images/perfil.jpg')}}"  class="profile-image ">
+                    <div class="caption-comments overflow-auto">
+                        <div class="media captions">
+                        <img src="{{asset('images/post_1.jpg')}}" class="profile-image" >
                         <div class="media-body">
-                           <h5 class="user-name">Juan_Nava897 </h5>
-                              <p class="comment">
-                                 Que buena foto!!!
-                              </p>
-                          </div>
-                      </div>
-               </div>
-
-               <div class="like-share-icon">
-                  <p>
-                      <a href="#" class=""> <i class="far fa-heart insta-button"></i>       </a>
-                       <a href="#" class=""> <i class="far fa-comment insta-button"></i>     </a>
-                      <a href="#" class=""> <i class="far fa-paper-plane insta-button"></i>  </a>
-
-                  </p>
-                      <p class="likes">  124 likes </p>
-               </div>
-
-               <div class="comment-bar">
-                  <form action="">
-                      <div class="input-group ">
-                        <input type="text" class="form-control comment" id="" placeholder="Add a Comment..">
-                       <div class="input-group-append">
-                       <button class="btn post-button" type="submit"> Post </button>
-                     </div>
+                                <h5 class="user-name">Uriegas_33 </h5>
+                                <div class="captions"> Sigueme para no perderte ninguna de mis publicaciones💯
+                                </div>
+                        </div>
                     </div>
-                    </form>
-               </div>
+                    <div class="media  captions">
+                        <img src="{{asset('images/post_1.jpg')}}"  class="profile-image ">
+                            <div class="media-body">
+                            <h5 class="user-name">Uriegas_33 </h5>
+                                <p class="comment">
+                                    Que buena foto!!!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-             </div>
-           </div>
-         <!-- </div> -->
+                    <div class="like-share-icon">
+                        <p>
+                            <a href="#" class=""> <i class="far fa-heart insta-button"></i>       </a>
+                            <a href="#" class=""> <i class="far fa-comment insta-button"></i>     </a>
+                            <a href="#" class=""> <i class="far fa-paper-plane insta-button"></i>  </a>
 
-        <!-- </div> -->
+                        </p>
+                        <p class="likes">  124 likes </p>
+                    </div>
 
-      </div>
+                    <div class="comment-bar">
+                        <form action="">
+                            <div class="input-group ">
+                                <input type="text" class="form-control comment" id="" placeholder="Add a Comment..">
+                            <div class="input-group-append">
+                            <button class="btn post-button" type="submit"> Post </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 
 
 </body>
