@@ -73,6 +73,7 @@
 
         <main class="py-4">
             @yield('content')
+            @extends('layouts.modalViewPublication')
         </main>
     </div>
 
@@ -80,6 +81,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
         function like(event) {
@@ -134,6 +137,11 @@
 
             let panelComentarios = event.target.parentNode.previousElementSibling.querySelector('.panelComentarios');
 
+            // console.log(panelComentarios);
+            // console.log(event.target);
+            // console.log(event.target.parentNode);
+            // console.log(event.target.parentNode.previousElementSibling);
+
             $.ajax({
                 type: "GET",
                 dataType: "json",
@@ -184,7 +192,47 @@
                 }
             });
         }
+
+        
     </script>
+
+<script>
+    function loadData(event) {
+        const idPublication = event.target.parentNode.getAttribute('data-publication');
+        let image = document.getElementById('image');
+        let userImage = document.getElementById('userImage');
+        let userName = document.getElementById('username');
+        let publicationTitle = document.getElementById('publicationTitle');
+        let panelComentarios = document.querySelector('.panelComentarios');
+        
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "{{route('getPublication')}}",
+            data: {
+                'id': idPublication,
+            },
+            success: function(data) {
+                console.log(data);
+                image.src = '../'+data.publication.image_url;
+                userImage.src = '../'+data.profile.image_url;
+                userName.innerText = data.profile.username;
+                userName.href = 'profile/'+ data.profile.id;
+                publicationTitle.innerText = data.publication.title
+
+                panelComentarios.innerHTML = '';
+
+                data.comments.forEach( function(valor, indice, array) {
+                    let comment = document.createElement('div');
+                    comment.innerHTML = '<p class="mb-0"><a href="profile/'+ valor.user_id+'" class="text-dark text-decoration-none" style="font-weight: bold;">'+valor.user.username+' </a>'+valor.text+'</p>'+
+                                '<small class="d-block text-muted text-uppercase">Hace 8 horas</small>';
+        
+                    panelComentarios.appendChild(comment);
+                });
+            }
+        });
+    }
+</script>
 
     @yield('extra-js')
 </body>

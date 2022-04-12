@@ -67,47 +67,6 @@
                     </div>
                 </div>
 
-                {{-- HISTORIAS --}}
-                {{-- <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <p class="text-muted flex-grow-1"  style="font-weight: bold;">Stories</p>
-                            <small><a href="" class="text-decoration-none text-dark" style="font-weight: bold;">Ver todas</a></small>
-                        </div>
-                        <div class="stories-container">
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
-                                    <small class="text-muted">hace 3 horas</small>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
-                                    <small class=" text-muted">hace 3 horas</small>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
-                                    <small class=" text-muted">hace 3 horas</small>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
-                                <div>
-                                    <a href="" class="d-block text-dark text-decoration-none" style="font-weight: bold;">Uriegas_33</a>
-                                    <small class=" text-muted">hace 3 horas</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-
 
                 {{-- SUGERENCIAS --}}
                 <div class="card">

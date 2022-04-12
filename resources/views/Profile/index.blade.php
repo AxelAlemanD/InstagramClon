@@ -213,7 +213,10 @@
                                     @foreach ($currentUser->publications as $publication)
                                         <div class="col-4">
                                             <div class="card">
-                                                <a href="{{route('publications.show', $publication->id)}}"></a><img src="{{asset($publication->image_url)}}" class="card-img-top" alt="...">
+                                                {{-- <a href="{{route('publications.show', $publication->id)}}"> --}}
+                                                <a href="#"  data-toggle="modal" data-target="#post" data-publication="{{$publication->id}}" onclick="loadData(event);">
+                                                    <img src="{{asset($publication->image_url)}}" class="card-img-top" alt="...">
+                                                </a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -233,6 +236,7 @@
             </div>
         </div>
     </section>
+
 @endsection
 @section('extra-js')
 

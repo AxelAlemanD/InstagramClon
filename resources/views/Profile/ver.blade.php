@@ -218,7 +218,10 @@
                                     @foreach ($currentUser->publications as $publication)
                                         <div class="col-4" style="padding-bottom: 25px;">
                                             <div class="card">
-                                                <a href="{{route('publications.show', $publication->id)}}"></a><img src="{{asset($publication->image_url)}}" class="card-img-top" alt="...">
+                                                <a href="#"  data-toggle="modal" data-target="#post" data-publication="{{$publication->id}}" onclick="loadData(event);">
+                                                    <img src="{{asset($publication->image_url)}}" class="card-img-top" alt="...">
+                                                </a>
+                                                {{-- <a href="{{route('publications.show', $publication->id)}}"></a><img src="{{asset($publication->image_url)}}" class="card-img-top" alt="..."> --}}
                                             </div>
                                         </div>
                                     @endforeach
