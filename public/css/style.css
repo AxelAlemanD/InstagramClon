@@ -128,7 +128,7 @@ i.lead {
     box-shadow: none;
 }
 .profile-picture{
-    background-image: url('../images/perfil.jpg');
+    background-image: none;
     background-size: cover;
     width: 3rem;
     height: 3rem;

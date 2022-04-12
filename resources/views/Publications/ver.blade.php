@@ -120,11 +120,11 @@ input{
     <div class="modal-dialog modal-dialog-centered modal-xl " role="document">
         <div class="modal-content">
             <div class="row">
-                <img src="{{asset('images/post_7.jpg')}}" class="col-8" alt="">
+                <img src="{{asset(auth()->user()->image_url)}}" class="col-8" alt="">
                 <div class="col-4 " >
                     <div class="profile-bar">
                         <div class="media">
-                            <img src="{{asset('images/perfil.jpg')}}" class=" profile-image " >
+                            <img src="{{asset(auth()->user()->image_url)}}" class="col-8" alt="">
                             <div class="media-body">
                                 <h5 class="user-name">Juan_Nava897 <a href="#" class="follow-link"> Seguir </a>  </h5>
                             </div>

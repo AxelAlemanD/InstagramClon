@@ -61,9 +61,9 @@
                     </li> --}}
                 </ul>
                 {{-- <div class="profile-picture rounded-circle" style="margin-left: 15;"></div> --}}
-                <a href="{{route('profile.index')}}"><img src="{{asset('images/perfil.jpg')}}" alt="" class="profile-picture rounded-circle" ></a>
+                <a href="{{route('profile.index')}}"><img src="{{asset(auth()->user()->image_url)}}" alt="" class="profile-picture rounded-circle" ></a>
                 {{-- <div class="profile-picture rounded-circle" style="margin-left: 15;">
-                    <a href="{{route('profile.index')}}"><img src="{{asset('images/perfil.jpg')}}" alt="" class="profile-picture rounded-circle" ></a>
+                    <a href="{{route('profile.index')}}"><img src="{{asset(auth()->user()->image_url)}}" alt="" class="profile-picture rounded-circle" ></a>
                 </div> --}}
             </div>
         </div>

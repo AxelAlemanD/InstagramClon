@@ -47,7 +47,7 @@
                                     <div class="col-6 border-left">
                                         <div class="row mb-2 border-bottom">
                                             <div class="d-flex m-2">
-                                                <div class="profile-picture rounded-circle mr-3" style="margin-right: 15;"></div>
+                                                <img src="{{ asset($currentUser->image_url) }}" alt="user-img" class="profile-picture rounded-circle">
                                                 <div class="text-left">
                                                     <a href="#" class="d-block text-decoration-none font-weight-bold mb-0">{{$currentUser->username}}</a>
                                                     <small class="text-muted">Photographer</small>
