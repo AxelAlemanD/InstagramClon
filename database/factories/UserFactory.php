@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'username' => $firstName.' '.$lastName,
             'first_name' => $firstName,
             'last_name' => $lastName,
+            'image_url' => 'https://picsum.photos/200/200?random='.rand(1, 100),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password

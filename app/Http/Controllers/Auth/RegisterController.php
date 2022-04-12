@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:25', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
+            'image_url' => ['nullable', 'string', 'max:255'],
         ]);
     }
 
@@ -73,6 +74,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'image_url' => 'https://picsum.photos/200/200?random='.rand(1, 100),
         ]);
 
         return redirect()->route('profile');

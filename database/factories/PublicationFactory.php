@@ -20,7 +20,7 @@ class PublicationFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'image_url' => $this->faker->imageUrl,
+            'image_url' => 'https://picsum.photos/200/300?random='.rand(1, 100),
             'user_id' => $this->faker->numberBetween(1, User::count()-1),
         ];
     }
