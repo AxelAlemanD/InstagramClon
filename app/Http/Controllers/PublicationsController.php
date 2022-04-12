@@ -28,7 +28,9 @@ class PublicationsController extends Controller
      */
     public function create()
     {
-        return view('Publications.crear');
+        $currentUser = auth()->user();
+
+        return view('Publications.crear', get_defined_vars());
     }
 
     /**
@@ -39,7 +41,31 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'     => 'required',
+            'image_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
+
+
+        if ($request->hasFile('image_url')) {
+            $file = $request->file('image_url');
+            $name = time() . $file->getClientOriginalName();
+            $file->move(public_path() . '/images/', $name);
+            $filename = $file->getClientOriginalName();
+            $request->merge(['image_url' => $filename]);
+        }
+
+        $publication = Publication::create([
+            'title'         => $request['title'],
+            'description'   => $request['description'],
+            'user_id'       => auth()->user()->id,
+            'image_url'     => 'images/' . $name,
+        ]);
+
+
+        // $publication->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -61,7 +87,8 @@ class PublicationsController extends Controller
      */
     public function edit($id)
     {
-        return view('Publications.editar');
+        $publication = Publication::find($id);
+        return view('Publications.editar', get_defined_vars());
     }
 
     /**
@@ -73,7 +100,42 @@ class PublicationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'title'     => 'required',
+            'image_url' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
+
+        // TODO: If validate fail reurn Alert
+        if ($request->hasFile('image_url')) {
+            $file = $request->file('image_url');
+            $name = time() . $file->getClientOriginalName();
+            $file->move(public_path() . '/images/', $name);
+            $filename = $file->getClientOriginalName();
+            $request->merge(['image_url' => $filename]);
+        }
+
+        $publication = Publication::find($id);
+
+        $file_path = public_path() . '/' . $publication->image_url;
+
+
+        $publication->update([
+            'title'         => $request['title'],
+            'description'   => $request['description'],
+        ]);
+
+        if($request->image_url != null){ // There is an image to update
+            if($publication->profile->image_url != null ){ // There is an image in the prject to delete
+                if(file_exists($file_path)){
+                    unlink($file_path);
+                }
+            }
+            $publication->image_url = 'images/' . $name;
+        }
+        $publication->save();
+
+        return redirect()->route('home');
     }
 
     /**

@@ -48,14 +48,17 @@
             <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav  mb-2 " style="margin-left: auto;">
                     <li class="nav-item">
-                    <a class="nav-link"  href="#"><i class="far fa-compass lead text-dark mr-3"></i></a>
+                        <a class="nav-link"  href="{{route('publications.create')}}"><i class="far fa-solid fa-camera lead text-dark mr-3"></i></a>
                     </li>
+                    {{-- <li class="nav-item">
+                    <a class="nav-link"  href="#"><i class="far fa-compass lead text-dark mr-3"></i></a>
+                    </li> --}}
                     <li class="nav-item">
                     <a class="nav-link"  href="#"><i class="far fa-heart lead text-dark mr-3"></i></a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                     <a class="nav-link"  href="#"><i class="far fa-user lead text-dark"></i></a>
-                    </li>
+                    </li> --}}
                 </ul>
                 {{-- <div class="profile-picture rounded-circle" style="margin-left: 15;"></div> --}}
                 <a href="{{route('profile.index')}}"><img src="{{asset('images/perfil.jpg')}}" alt="" class="profile-picture rounded-circle" ></a>
