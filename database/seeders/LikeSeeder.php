@@ -18,7 +18,9 @@ class LikeSeeder extends Seeder
     public function run()
     {
         foreach (User::all() as $user) {
-            // Get random subarray of publications
+            // Get random subarray of publications,
+            // This is necessary to make sure that there are not double entries
+            // That is a user should not be able to like a publication twice
             $publications = Publication::inRandomOrder()
                 ->take(rand(1, 5))
                 ->get();

@@ -67,14 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data);
+        // Download $img_url ans save into public/images folder
+        $img_url = 'https://picsum.photos/200/300?random='.rand(1, 100);
+        $img_name = date('mdYHis') . uniqid() .'.jpg';
+        $img_path = public_path('images/'.$img_name);
+        file_put_contents($img_path, file_get_contents($img_url));
         return User::create([
             'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'image_url' => 'https://picsum.photos/200/200?random='.rand(1, 100),
+            'image_url' => 'images/' . $img_name,
         ]);
 
         return redirect()->route('profile');
