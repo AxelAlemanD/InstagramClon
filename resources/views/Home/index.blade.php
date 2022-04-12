@@ -14,7 +14,7 @@
                             <div class="card mb-5">
                                 <div class="card-body d-flex">
                                     <div class="d-flex flex-grow-1">
-                                        <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                                        <img src="{{ asset($publication->user->image_url) }}" alt="user-img" class="profile-picture rounded-circle mb-1">
                                         <a href="{{route('profile.show', $publication->user_id)}}" class="text-dark text-decoration-none font-weight-bold align-self-center" style="font-weight: bold;">{{$publication->user->username}}</a>
                                     </div>
                                     <div class="align-self-center">
@@ -60,7 +60,7 @@
             {{-- COLUMNA LATERAL --}}
             <div class="col-lg-4">
                 <div class="d-flex mb-4">
-                    <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                    <img src="{{ asset($currentUser->image_url) }}" alt="user-img" class="profile-picture rounded-circle">
                     <div>
                         <a href="{{route('profile.index')}}" class="d-block text-decoration-none font-weight-bold mb-0">{{$currentUser->username}}</a>
                         {{-- <small class="text-muted">Photographer</small> --}}
@@ -118,7 +118,7 @@
                         </div>
                         @foreach ($suggestions as $suggestion)
                         <div class="d-flex mb-4">
-                            <div class="profile-picture rounded-circle" style="margin-right: 15;"></div>
+                            <img src="{{ asset($suggestion->user->image_url) }}" alt="user-img" class="profile-picture rounded-circle">
                             <div>
                                 <a href="{{route('profile.show', $suggestion->user_id)}}" class="d-block text-dark text-decoration-none" style="font-weight: bold;">{{$suggestion->user->username}}</a>
                                 {{-- <small class="text-muted">Nuevo en instagram</small> --}}

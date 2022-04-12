@@ -142,7 +142,7 @@
                     <div class="container">
                         <div class="row" style="padding-top: 30px;">
                             <div class="col-3">
-                                <img class="img-profile" src="{{asset('images/perfil.jpg')}}">
+                                <img class="img-profile" src="{{asset(auth()->user()->image_url)}}">
                             </div>
                             <div class="col-7">
                                 <div class="row" style="padding-top: 20px; padding-bottom: 10px;">

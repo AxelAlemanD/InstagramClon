@@ -155,14 +155,14 @@ input{
          <!-- <div class="container-fluid"> -->
            <div class="row">
              <!-- <div class="col-8"> -->
-               <img src="{{asset('images/perfil.jpg')}}" class="col-8" alt="">
+               <img src="{{asset(auth()->user()->image_url)}}" class="col-8" alt="">
              <!-- </div> -->
              <div class="col-4 ">
 
                <div class="profile-bar">
 
                   <div class="media">
-                      <img src="{{asset('images/perfil.jpg')}}" class=" profile-image " >
+                      <img src="{{asset(auth()->user()->image_url)}}" class=" profile-image " >
                        <div class="media-body">
                              <h5 class="user-name">Juan_Nava897 <a href="#" class="follow-link"> Follow </a>  </h5>
                         </div>
@@ -173,7 +173,7 @@ input{
                <div class="caption-comments overflow-auto">
 
                   <div class="media captions">
-                      <img src="{{asset('images/perfil.jpg')}}" class="profile-image" >
+                      <img src="{{asset(auth()->user()->image_url)}}" class="profile-image" >
                        <div class="media-body">
                            <h5 class="user-name">Juan_Nava897 </h5>
                              <div class="captions"> Sigueme para no perderte ninguna de mis publicaciones💯
@@ -182,7 +182,7 @@ input{
                    </div>
 
                    <div class="media  captions">
-                      <img src="{{asset('images/perfil.jpg')}}"  class="profile-image ">
+                      <img src="{{asset(auth()->user()->image_url)}}"  class="profile-image ">
                         <div class="media-body">
                            <h5 class="user-name">Juan_Nava897 </h5>
                               <p class="comment">
