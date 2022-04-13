@@ -23,14 +23,14 @@ class UserFactory extends Factory
         // Download $img_url ans save into public/images folder
         $img_url = 'https://picsum.photos/200/300?random='.rand(1, 100);
         $img_name = date('mdYHis') . uniqid() .'.jpg';
-        $img_path = public_path('images/'.$img_name);
+        $img_path = public_path('images/db/'.$img_name);
         file_put_contents($img_path, file_get_contents($img_url));
 
         return [
             'username' => $firstName.' '.$lastName,
             'first_name' => $firstName,
             'last_name' => $lastName,
-            'image_url' => 'images/' . $img_name,
+            'image_url' => 'images/db/' . $img_name,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password

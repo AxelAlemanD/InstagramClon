@@ -52,7 +52,7 @@ class PublicationsController extends Controller
         if ($request->hasFile('image_url')) {
             $file = $request->file('image_url');
             $name = time() . $file->getClientOriginalName();
-            $file->move(public_path() . '/images/', $name);
+            $file->move(public_path() . '/images/db/', $name);
             $filename = $file->getClientOriginalName();
             $request->merge(['image_url' => $filename]);
         }
@@ -61,7 +61,7 @@ class PublicationsController extends Controller
             'title'         => $request['title'],
             'description'   => $request['description'],
             'user_id'       => auth()->user()->id,
-            'image_url'     => 'images/' . $name,
+            'image_url'     => 'images/db/' . $name,
         ]);
 
 
@@ -112,7 +112,7 @@ class PublicationsController extends Controller
         if ($request->hasFile('image_url')) {
             $file = $request->file('image_url');
             $name = time() . $file->getClientOriginalName();
-            $file->move(public_path() . '/images/', $name);
+            $file->move(public_path() . '/images/db/', $name);
             $filename = $file->getClientOriginalName();
             $request->merge(['image_url' => $filename]);
         }
@@ -133,7 +133,7 @@ class PublicationsController extends Controller
                     unlink($file_path);
                 }
             }
-            $publication->image_url = 'images/' . $name;
+            $publication->image_url = 'images/db/' . $name;
         }
         $publication->save();
 

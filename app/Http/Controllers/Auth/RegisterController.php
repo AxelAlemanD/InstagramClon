@@ -70,7 +70,7 @@ class RegisterController extends Controller
         // Download $img_url ans save into public/images folder
         $img_url = 'https://picsum.photos/200/300?random='.rand(1, 100);
         $img_name = date('mdYHis') . uniqid() .'.jpg';
-        $img_path = public_path('images/'.$img_name);
+        $img_path = public_path('images/db/'.$img_name);
         file_put_contents($img_path, file_get_contents($img_url));
         return User::create([
             'email' => $data['email'],
@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'image_url' => 'images/' . $img_name,
+            'image_url' => 'images/db/' . $img_name,
         ]);
 
         return redirect()->route('profile');

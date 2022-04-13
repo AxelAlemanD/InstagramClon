@@ -27,6 +27,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
     @yield('extra-css')
 </head>
@@ -38,12 +39,10 @@
             <div>
                 <a class="navbar-brand border-right pr-4" href="{{route('home')}}"><i class="fa-brands fa-instagram lead"></i></a>
                 <a href="{{route('home')}}"><img src="{{asset('images/insta.png')}}" class="img-fluid w-50"></a>
-                
             </div>
-            <form class="d-flex position-relative">
-                <input class="form-control bg-grey border  text-center mr-2" type="Search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-link text-muted position-absolute" type="submit"><i class="fas fa-search"></i></button>
-            </form>
+            <div class="col-md-4">
+                <select class="livesearch form-control p-3" name="livesearch"></select>
+            </div>
         
             <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav  mb-2 " style="margin-left: auto;">
@@ -76,6 +75,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Select2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <script>
         function like(event) {
@@ -153,7 +156,6 @@
             });
         }
 
-
         function followUser(event) {
             event.preventDefault();
             let id = event.target.getAttribute('data-id');            
@@ -178,45 +180,70 @@
             });
         }
 
-        
-    </script>
+        function loadData(event) {
+            const idPublication = event.target.parentNode.getAttribute('data-publication');
+            let image = document.getElementById('image');
+            let userImage = document.getElementById('userImage');
+            let userName = document.getElementById('username');
+            let publicationTitle = document.getElementById('publicationTitle');
+            let panelComentarios = document.querySelector('.panelComentarios');
+            
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "{{route('getPublication')}}",
+                data: {
+                    'id': idPublication,
+                },
+                success: function(data) {
+                    image.src = '../'+data.publication.image_url;
+                    userImage.src = '../'+data.profile.image_url;
+                    userName.innerText = data.profile.username;
+                    userName.href = 'profile/'+ data.profile.id;
+                    publicationTitle.innerText = data.publication.title
 
-<script>
-    function loadData(event) {
-        const idPublication = event.target.parentNode.getAttribute('data-publication');
-        let image = document.getElementById('image');
-        let userImage = document.getElementById('userImage');
-        let userName = document.getElementById('username');
-        let publicationTitle = document.getElementById('publicationTitle');
-        let panelComentarios = document.querySelector('.panelComentarios');
-        
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "{{route('getPublication')}}",
-            data: {
-                'id': idPublication,
-            },
-            success: function(data) {
-                image.src = '../'+data.publication.image_url;
-                userImage.src = '../'+data.profile.image_url;
-                userName.innerText = data.profile.username;
-                userName.href = 'profile/'+ data.profile.id;
-                publicationTitle.innerText = data.publication.title
+                    panelComentarios.innerHTML = '';
 
-                panelComentarios.innerHTML = '';
+                    data.comments.forEach( function(valor, indice, array) {
+                        let comment = document.createElement('div');
+                        comment.innerHTML = '<p class="mb-0"><a href="profile/'+ valor.user_id+'" class="text-dark text-decoration-none" style="font-weight: bold;">'+valor.user.username+' </a>'+valor.text+'</p>'+
+                                    '<small class="d-block text-muted text-uppercase">Hace 8 horas</small>';
+            
+                        panelComentarios.appendChild(comment);
+                    });
+                }
+            });
+        }
 
-                data.comments.forEach( function(valor, indice, array) {
-                    let comment = document.createElement('div');
-                    comment.innerHTML = '<p class="mb-0"><a href="profile/'+ valor.user_id+'" class="text-dark text-decoration-none" style="font-weight: bold;">'+valor.user.username+' </a>'+valor.text+'</p>'+
-                                '<small class="d-block text-muted text-uppercase">Hace 8 horas</small>';
-        
-                    panelComentarios.appendChild(comment);
-                });
+        $('.livesearch').select2({
+            placeholder: 'Select user',
+            ajax: {
+                url: '/user-search',
+                dataType: 'json',
+                delay: 250,
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.username,
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
             }
         });
-    }
-</script>
+        // When option appears under the search bar redirect to the profile
+        $('.livesearch').on('select2:select', function (e) {
+            if({{auth()->user()->id}} !== e.params.data.id){
+                window.location.href = '/profile/'+e.params.data.id;
+            }
+            else{
+                window.location.href = '/profile';
+            }
+        });
+    </script>
 
     @yield('extra-js')
 </body>
