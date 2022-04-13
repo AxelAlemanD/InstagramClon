@@ -23,6 +23,10 @@
                                 </div>
                             
                                 <img src="{{$publication->image_url}}" class="img-fluid">
+                                <div class="row border-bottom mb-3 mt-3">
+                                    <p class="font-weight-bold ml-3">{{$publication->title}}</p>
+                                    <p class="ml-3">{{$publication->description}}</p>
+                                </div>
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="flex-grow-1">
@@ -37,7 +41,6 @@
                                     <p style="font-weight: bold;" class="likes">{{count($publication->likes)}} Me gusta</p>
                                     <div class="panelComentarios">
                                     @foreach ($publication->comments as $comment)
-                                        
                                             <div>
                                                 <p class="mb-0"><a href="{{route('profile.show', $comment->user_id)}}" class="text-dark text-decoration-none" style="font-weight: bold;">{{$comment->user->username}} </a>{{$comment->text}}</p>    
                                                 <small class="d-block text-muted text-uppercase">Hace 8 horas</small>

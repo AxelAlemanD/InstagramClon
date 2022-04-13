@@ -173,6 +173,7 @@
                     } else {
                         event.target.innerText = 'Seguir';
                     }
+                    window.location.reload();
                 }
             });
         }
