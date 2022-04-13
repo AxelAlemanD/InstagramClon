@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Follower;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,22 @@ class HomeController extends Controller
         $suggestions = Follower::where('follower_id', '!=', $currentUser->id)->take(5)->get();
 
         return view('Home.index', get_defined_vars());
+    }
+
+    /**
+     * Search for users
+     */
+    public function search(Request $request)
+    {
+        $users = [];
+        if($request->has('q')){
+            $search = $request->q;
+            $users = User::where('username', 'LIKE', "%$search%")
+                        ->orWhere('first_name', 'LIKE', "%$search%")
+                        ->orWhere('last_name', 'LIKE', "%$search%")
+                        ->orWhere('email', 'LIKE', "%$search%")
+                        ->get();
+        }
+        return response()->json($users);
     }
 }
