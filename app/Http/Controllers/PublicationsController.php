@@ -65,8 +65,6 @@ class PublicationsController extends Controller
         ]);
 
 
-        // $publication->save();
-
         return redirect()->route('home');
     }
 
@@ -191,7 +189,10 @@ class PublicationsController extends Controller
                 'text' => $request->text,
             ]);
 
+        $time = $comment->created_at->diffForHumans(now());
+
         $comment = Arr::add($comment, 'username', $comment->user->username);
+        $comment = Arr::add($comment, 'time', $time);
         
         return response()->json($comment , 202);
     }
@@ -202,7 +203,12 @@ class PublicationsController extends Controller
         $profile = User::findOrFail($publication->user_id);
         $comments = $publication->comments;
         foreach ($comments as $comment) {
+
+            $time = $comment->created_at->diffForHumans(now());
             $comment = Arr::add($comment, 'user', $comment->user);
+            
+            // $time = $comment->created_at->diffForHumans(now());
+            $comment = Arr::add($comment, 'time', $time);
         }
         
 

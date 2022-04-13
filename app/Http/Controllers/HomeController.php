@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Follower;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -27,7 +28,12 @@ class HomeController extends Controller
     {
         $currentUser = auth()->user();
         $follows =  Follower::getFollowing($currentUser->id);
-        $suggestions = Follower::where('follower_id', '!=', $currentUser->id)->take(5)->get();
+        $suggestions = Follower::where('follower_id', '!=', $currentUser->id)
+                                ->take(5)
+                                ->get();
+
+                                
+        $follows = Arr::add($follows, 'currentUser', $currentUser);
 
         return view('Home.index', get_defined_vars());
     }

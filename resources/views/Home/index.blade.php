@@ -43,7 +43,7 @@
                                     @foreach ($publication->comments as $comment)
                                             <div>
                                                 <p class="mb-0"><a href="{{route('profile.show', $comment->user_id)}}" class="text-dark text-decoration-none" style="font-weight: bold;">{{$comment->user->username}} </a>{{$comment->text}}</p>    
-                                                <small class="d-block text-muted text-uppercase">Hace 8 horas</small>
+                                                <small class="d-block text-muted text-uppercase">{{$comment->created_at->diffForHumans(now())}}</small>
                                             </div>
                                     @endforeach
                                     </div>

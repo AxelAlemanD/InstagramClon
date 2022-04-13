@@ -127,9 +127,12 @@
 
         function addComment(event) {
             event.preventDefault();
+            console.log(event.target);
+
             let id = event.target.getAttribute('data-id');            
             let user_id = {{auth()->user()->id}};
             let input = event.target.previousElementSibling;
+
 
             let panelComentarios = event.target.parentNode.previousElementSibling.querySelector('.panelComentarios');
 
@@ -146,7 +149,7 @@
 
                     let comment = document.createElement('div');
                     comment.innerHTML = '<p class="mb-0"><a href="{{route('profile.show',' + newComment.user_id')}}" class="text-dark text-decoration-none" style="font-weight: bold;">'+newComment.username+' </a>'+newComment.text+'</p>'+
-                                    '<small class="d-block text-muted text-uppercase">Hace 8 horas</small>';
+                                    '<small class="d-block text-muted text-uppercase">'+newComment.time+'</small>';
                                             
             
                     panelComentarios.appendChild(comment);
@@ -186,7 +189,11 @@
             let userImage = document.getElementById('userImage');
             let userName = document.getElementById('username');
             let publicationTitle = document.getElementById('publicationTitle');
+            let publicationDescription = document.getElementById('publicationDescription');
             let panelComentarios = document.querySelector('.panelComentarios');
+            let butonSubmit = document.querySelector('button');
+
+            butonSubmit.setAttribute('data-id', idPublication);
             
             $.ajax({
                 type: "GET",
@@ -201,13 +208,14 @@
                     userName.innerText = data.profile.username;
                     userName.href = 'profile/'+ data.profile.id;
                     publicationTitle.innerText = data.publication.title
+                    publicationDescription.innerText = data.publication.description;
 
                     panelComentarios.innerHTML = '';
 
                     data.comments.forEach( function(valor, indice, array) {
                         let comment = document.createElement('div');
                         comment.innerHTML = '<p class="mb-0"><a href="profile/'+ valor.user_id+'" class="text-dark text-decoration-none" style="font-weight: bold;">'+valor.user.username+' </a>'+valor.text+'</p>'+
-                                    '<small class="d-block text-muted text-uppercase">Hace 8 horas</small>';
+                                            '<small class="d-block text-muted text-uppercase">'+valor.time+'</small>';
             
                         panelComentarios.appendChild(comment);
                     });

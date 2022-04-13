@@ -182,7 +182,7 @@
                     </div>
 
                     <!-- Stories-->
-                    <div style="padding-top: 0px;">
+                    {{-- <div style="padding-top: 0px;">
                         <div class="row">
                             <div class="col-2"> <canvas id="myCrl"></canvas></div>
                             <div class="col-2"> <canvas id="myCrl1"></canvas></div>
@@ -195,7 +195,7 @@
                             <div class="col-2 stories"> Foto_2</div>
                             <div class="col-2 stories"> Foto_3</div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Line-->
                     <hr size="3" width="100%" color="#EEEEEE" style="margin: 0%;">

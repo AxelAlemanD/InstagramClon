@@ -21,7 +21,7 @@
                                 <form action="{{route('publications.destroy', $publication->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="action-btns1" data-toggle="tooltip" data-placement="top" title="Eliminar" type="submit"><i class="fa-regular fa-trash-can text-danger"></i></button>
+                                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar" type="submit">Eliminar</button>
                                 </form>
                             </div>
                             @endif
@@ -29,6 +29,7 @@
                     </div>
                     <div class="row border-bottom mb-3 mt-3">
                         <p class="font-weight-bold" id="publicationTitle"></p>
+                        <p id="publicationDescription"></p>
                     </div>
                     <div class="d-flex">
                         <div class="flex-grow-1">
