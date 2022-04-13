@@ -20,13 +20,13 @@ class PublicationFactory extends Factory
         // Download $img_url ans save into public/images folder
         $img_url = 'https://picsum.photos/800/900?random='.rand(1, 100);
         $img_name = date('mdYHis') . uniqid() .'.jpg';
-        $img_path = public_path('images/'.$img_name);
+        $img_path = public_path('images/db/'.$img_name);
         file_put_contents($img_path, file_get_contents($img_url));
 
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'image_url' => 'images/' . $img_name,
+            'image_url' => 'images/db/' . $img_name,
             'user_id' => $this->faker->numberBetween(1, User::count()-1),
         ];
     }
